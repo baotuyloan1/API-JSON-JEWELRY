@@ -42,7 +42,7 @@ class Discount
     }
 }
 
-$link = "http://localhost/API/recommender.py";
+$link = "http://localhost/jewelry/API/recommender.py";
 
 $data = file_get_contents($link);
 

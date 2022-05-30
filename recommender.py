@@ -212,14 +212,14 @@ if (len(records) > 3):
             productPrice =  product_features_df.index[indices.flatten()[i]][2]
             productImage = product_features_df.index[indices.flatten()[i]][3]
             discountId = product_features_df.index[indices.flatten()[i]][4]
-            sql = "SELECT * FROM tbl_discount WHERE discount_id = 4"
+            sql = "SELECT * FROM tbl_discount WHERE discount_id = %s"
             val = (discountId)
-            cursor.execute(sql,val)
+            cursor.execute("SELECT * FROM tbl_discount WHERE discount_id = (%s)"% (str(17)))
             records = cursor.fetchall()
             for row in records:
                 discount_percent = row[2]
                 discount_object = row[3]
-            arrayDiscounts.append(Discount(id=discountId , discount_percent=discount_percent , discount_object= discount_object))
+                arrayDiscounts.append(Discount(id=discountId , discount_percent=discount_percent , discount_object= discount_object))
             d = Discount.encodeJson(discounts= arrayDiscounts)
             # print(d)
             arrayProducts.append(Product(id= productId, name= productName, price= productPrice, image = productImage , distance= distances.flatten()[i] , discountID=discountId))
