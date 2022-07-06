@@ -62,7 +62,7 @@ from numpy import double, product
 
 conn = mysql.connector.connect(host = "localhost",port= "3306", user="truyenbo", password="Truyenbo99", database="jewel")
 cursor = conn.cursor()
-selectquery = "select * from tbl_product"
+selectquery = "select * from tbl_product where product_status =1"
 cursor.execute(selectquery)
 records = cursor.fetchall()
 
@@ -82,7 +82,7 @@ for row in records:
 #res = json.dumps([o.dump() for o in products], indent=3)
 #print(res)
 products_df = pd.DataFrame (products, columns = ['ProductID', 'DiscountID','ProductName','ProductImage','ProductPrice'])
-selectquery = "select * from tbl_rating"
+selectquery = "select * from tbl_rating where status = 1"
 # selectquery = """select * from tbl_rating where user_id = %s"""
 # data = (userId,)
 cursor.execute(selectquery)
@@ -99,7 +99,7 @@ if (len(records) > 3):
     # print("category id",row[1])
     
     #print(product_df)
-        rating = [row[2],row[1],row[3],row[7]]
+        rating = [row[2],row[1],row[3],row[8]]
         ratings.append(rating)
   
     # res = json.dumps([o.dump() for o in products], indent=3)

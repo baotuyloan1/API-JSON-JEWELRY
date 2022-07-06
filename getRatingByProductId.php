@@ -19,8 +19,8 @@ $ratingArray = array();
                 (int) $row['rating'],
                 $row['comments'],
                 (int)$row['status'],
-                $row['created_at'],
-                $row['updated_at']
+                $row['created_at_review'],
+                $row['created_at_review']
             ));
 
          

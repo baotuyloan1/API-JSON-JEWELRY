@@ -3,7 +3,7 @@
 include "connect.php";
 $idCustomer = $_POST['customer_id'];
 
-$query = "SELECT * FROM tbl_billing where customer_id = '$idCustomer' AND status = 1";
+$query = "SELECT * FROM tbl_billing where customer_id = '$idCustomer' AND billing_status = 1";
 $data = mysqli_query($conn, $query);
 
 $billingArray = array();
